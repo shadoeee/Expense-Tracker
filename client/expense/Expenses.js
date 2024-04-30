@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     color: 'grey'
   },
   panel: {
-    border: '1px solid #58bd7f',
+    border: '1px solid black',
     margin: 6
   },
   info: {
@@ -49,6 +49,7 @@ const useStyles = makeStyles(theme => ({
   amount: {
     fontSize: '2em',
     color: '#2bbd7e',
+    fontWeight:'600'
   },
   search:{
     display: 'flex',
@@ -179,7 +180,7 @@ export default function Expenses() {
             expandIcon={<Edit />}
           >
             <div className={classes.info}>
-                <Typography className={classes.amount}>$ {expense.amount}</Typography><Divider style={{marginTop: 4, marginBottom: 4}}/>
+                <Typography className={classes.amount}>₹ {expense.amount}</Typography><Divider style={{marginTop: 4, marginBottom: 4}}/>
                 <Typography>
                     {expense.category}
                 </Typography>
@@ -196,7 +197,7 @@ export default function Expenses() {
           <ExpansionPanelDetails style={{display: 'block'}}>
           <div>
               <TextField label="Title" className={classes.textField} value={expense.title} onChange={handleChange('title', index)} margin="normal"/>
-             <TextField label="Amount ($)" className={classes.textField} value={expense.amount} onChange={handleChange('amount', index)} margin="normal" type="number"/>
+             <TextField label="Amount (₹)" className={classes.textField} value={expense.amount} onChange={handleChange('amount', index)} margin="normal" type="number"/>
           </div>
           <div>
           <MuiPickersUtilsProvider utils={DateFnsUtils}>

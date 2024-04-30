@@ -11,35 +11,35 @@ import {Link, withRouter} from 'react-router-dom'
 
 const isActive = (history, path) => {
   if (history.location.pathname == path)
-    return {color: '#69f0ae'}
+    return {color: '#000000', border:'2px solid #ffffff', backgroundColor: '#FFB22D', marginLeft:10}
   else
-    return {color: '#ffffff'}
+    return {color: '#ffffff',fontWeight:'600',marginLeft:10}
 }
 const isButtonActive = (history, path) => {
   if (history.location.pathname.includes(path))
-    return {color: '#fffde7', backgroundColor: '#2bbd7e', marginRight:10}
+    return {color: '#000000', backgroundColor: '#FFD900', marginRight:10,fontWeight:'600'}
   else
-    return {color: '#2bbd7e', backgroundColor: '#ffffff', border:'1px solid #2bbd7e', marginRight:10}
+    return {color: '#000000', backgroundColor: '#ffffff', border:'1px solid #2bbd7e', marginRight:10,fontWeight:'600'}
 }
 const Menu = withRouter(({history}) => (
   <AppBar position="static">
     <Toolbar>
-      <Typography variant="h6" color="inherit">
-        MERN Expense Tracker
+      <Typography  style={{fontWeight:'600', fontSize:'20px'}}>
+        Expense Tracker
       </Typography>
       <div>
         <Link to="/">
-          <IconButton aria-label="Home" style={isActive(history, "/")}>
+          <IconButton aria-label="Home" style={isActive(history, "/") }>
             <HomeIcon/>
           </IconButton>
         </Link>
         {
           auth.isAuthenticated() && (<span>
             <Link to={"/expenses/all"}>
-              <Button style={isActive(history, "/expenses/all")}>Expenses</Button>
+              <Button style={{ ...isActive(history, "/expenses/all"), fontWeight:'600' }}>Expenses</Button>
             </Link>
             <Link to={"/expenses/reports"}>
-              <Button style={isActive(history, "/expenses/reports")}>Reports</Button>
+              <Button style={{ ...isActive(history, "/expenses/reports"),fontWeight:'600' }}>Reports</Button>
             </Link>
           </span>)
         }
@@ -63,9 +63,10 @@ const Menu = withRouter(({history}) => (
           <Link to={"/user/" + auth.isAuthenticated().user._id}>
             <Button style={isActive(history, "/user/" + auth.isAuthenticated().user._id)}>My Profile</Button>
           </Link>
-          <Button color="inherit" onClick={() => {
-              auth.clearJWT(() => history.push('/'))
-            }}>Sign out</Button>
+          <Button style={{ color: 'white', fontWeight:'600' }} onClick={() => {
+    auth.clearJWT(() => history.push('/'))
+}}>Sign out</Button>
+
         </span>)
       }
       </span></div>

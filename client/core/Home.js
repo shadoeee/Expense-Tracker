@@ -9,6 +9,8 @@ import {Link} from 'react-router-dom'
 import auth from '../auth/auth-helper'
 import ExpenseOverview from './../expense/ExpenseOverview'
 
+const unicornbike = 'https://img.freepik.com/premium-vector/monthly-mortgage-online-payment-tiny-young-lovely-couple-female-male-pay-hypothec-credit-flat-vector-illustration-isolated-white_121223-2631.jpg?size=626&ext=jpg';
+
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 800,
@@ -43,14 +45,13 @@ export default function Home(){
           } 
           { !auth.isAuthenticated() && typeof window !== "undefined" && 
             (<Card className={classes.card}>
-              <Typography variant="h6" className={classes.title}>
+              <Typography variant="h6" className={classes.title} style={{fontWeight:'bold',textAlign:'center'}}>
                 Home Page
               </Typography>
-              <CardMedia className={classes.media} image={unicornbikeImg} title="Unicorn Bicycle"/>
-              <Typography variant="body2" component="p" className={classes.credit} color="textSecondary">Photo by <a href="https://unsplash.com/@anniespratt" target="_blank" rel="noopener noreferrer">Annie Spratt</a> on Unsplash</Typography>
+              <CardMedia className={classes.media} image={unicornbike} title="Tracker counter"/>
               <CardContent>
-                <Typography variant="body1" component="p">
-                  Welcome to the MERN Expense Tracker. <Link to='/signup'>Sign up</Link> or <Link to='/signin'>sign in</Link> to get started.
+                <Typography variant="body1" component="p" style={{textAlign:'center', fontWeight:'600'}}>
+                  Welcome to the Expense Tracker. <Link to='/signup'>Sign up</Link> or <Link to='/signin'>sign in</Link> to get started.
                 </Typography>
               </CardContent>
             </Card>)

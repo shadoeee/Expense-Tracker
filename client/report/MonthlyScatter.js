@@ -11,7 +11,8 @@ import { VictoryTheme, VictoryScatter, VictoryChart, VictoryTooltip, VictoryLabe
 const useStyles = makeStyles(theme => ({
   title: {
     padding:`32px ${theme.spacing(2.5)}px 2px`,
-    color: '#2bbd7e',
+    color: 'black',
+    fontWeight:'600',
     display:'inline'
   }
 }))
